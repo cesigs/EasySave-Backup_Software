@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="pause-button.png" />
+    <None Remove="play-button.png" />
+    <None Remove="stop-button.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClientWPF.core\ClientWPF.core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="pause-button.png" />
+    <Resource Include="play-button.png" />
+    <Resource Include="stop-button.png" />
+  </ItemGroup>
+
+</Project>

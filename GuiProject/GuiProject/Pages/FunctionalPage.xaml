@@ -1,0 +1,110 @@
+﻿<Page x:Class="GuiProject.Pages.FunctionalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GuiProject.Pages"
+      mc:Ignorable="d"
+      Title="FunctionalPage"
+      Height="550" Width="970">
+
+    <Border Background="White">
+        <Grid>
+            <!--DEFINE COLUMNS SIZES-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--LEFT MENU PANNEL-->
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="2,0,2,0" >
+                <!--Display save-->
+                <TextBlock x:Name="displaySaveWorkMaj" TextAlignment="center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" FontSize="15" FontWeight="Bold" Margin="0,1,0,0" Text=""></TextBlock>
+                <Button Style="{DynamicResource RoundButtonTemplate}" x:Name="displaySaveWorkMin" Tag="DisplaySaveWorks" Click="LeftMenu_Click" FontSize="13" Content="" Height="30"></Button>
+                <Separator Height="9" Background="Transparent"/>
+                <!--Add save-->
+                <TextBlock x:Name="addSaveWorkMaj" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" FontSize="15" FontWeight="Bold" Text=""></TextBlock>
+                <TextBlock x:Name="name" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text=""></TextBlock>
+                <TextBox x:Name="saveName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
+                <TextBlock x:Name="source" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text=""></TextBlock>
+                <TextBox x:Name="saveSource" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="18"/>
+                <TextBlock x:Name="destination" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text=""></TextBlock>
+                <TextBox x:Name="saveDest" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="18"/>
+                <TextBlock x:Name="saveTypeText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text=""></TextBlock>
+                <ComboBox x:Name="saveType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                    <ComboBoxItem x:Name="complete" Content=""></ComboBoxItem>
+                    <ComboBoxItem x:Name="differential" Content=""></ComboBoxItem>
+                </ComboBox>
+                <Button Style="{DynamicResource RoundButtonTemplate}" Height="30" x:Name="addSaveWorkMin" Tag="AddSaveWork" Click="LeftMenu_Click" FontSize="13" Margin="0,4,0,0" Content=""></Button>
+                <Separator Height="10" Background="Transparent"/>
+                <!--Execute one save-->
+                <TextBlock x:Name="executeSaveWorkMaj" TextAlignment="left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" FontSize="15" FontWeight="Bold" Text=""></TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock x:Name="id" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text=""></TextBlock>
+                    <TextBox x:Name="saveWorkToExecuteId" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="18" Margin="5,0,0,0"/>
+                </StackPanel>
+                <Button Style="{DynamicResource RoundButtonTemplate}" Height="30" x:Name="executeSaveWorkMin" Tag="ExecuteOneSaveWork" Click="LeftMenu_Click" FontSize="13" Content=""></Button>
+                <Separator Height="8" Background="Transparent"/>
+                <!--Execute all the saves-->
+                <TextBlock x:Name="executeAllSaveWorkMaj" TextAlignment="center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" FontSize="15" FontWeight="Bold" Text=""></TextBlock>
+                <Button Style="{DynamicResource RoundButtonTemplate}" Height="30" x:Name="executeAllSaveWorkMin" Tag="ExecuteSaveWorks" Click="LeftMenu_Click" FontSize="13" Content=""></Button>
+                <!--Establish connection-->
+                <Separator Height="18" Background="Transparent"/>
+                <Button Style="{DynamicResource RoundButtonConnection}" Height="30" x:Name="establishConnection" Tag="Establish_Connection" Click="LeftMenu_Click" FontSize="13" Content=""/>
+            </StackPanel>
+            
+            <!--DATA GRID LIST SAVE WORKS-->
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,5,18,0">
+                <DataGrid x:Name="ListSaveWorks" Height="450"/>
+            </StackPanel>
+            
+            <!--PLAY, PAUSE, STOP BUTTONS-->
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,45">
+                <!--PLAY-->
+                <Button x:Name="playButton" Tag="PlaySaveWorks" Click="LeftMenu_Click" Margin="0,80,0,0">
+                    <Image Height="40" Width="40" Source="/Images/play-button.png"/>
+                </Button>
+                <!--PAUSE-->
+                <Button x:Name="pauseButton" Tag="PauseSaveWorks" Click="LeftMenu_Click" Margin="0,80,0,0">
+                    <Image Height="40" Width="40" Source="/Images/pause-button.png" />
+                </Button>
+                <!--STOP-->
+                <Button x:Name="stopButton" Tag="StopSaveWorks" Click="LeftMenu_Click" Margin="0,80,0,0">
+                    <Image Height="40" Width="40" Source="/Images/stop-button.png" />
+                </Button>
+            </StackPanel>
+
+            <!--File extension to crypt-->
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,20,70">
+                <TextBlock x:Name="fileExtensionToEncrypt" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text="" Margin="0,0,5,0"/>
+                <ComboBox x:Name="CryptFiles" Width="auto" Height="22"  SelectedIndex="0" Margin="6,0,0,0">
+                    <ComboBoxItem x:Name="EncryptNone" Content="None"></ComboBoxItem>
+                    <ComboBoxItem x:Name="mp4" Content=".mp4"></ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <!--File extension to prioritize-->
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,20,42">
+                <TextBlock x:Name="fileExtensionToPrioritize" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text="" Margin="0,0,5,0"/>
+                <ComboBox x:Name="PrioritizeFiles" Width="auto" Height="22"  SelectedIndex="0">
+                    <ComboBoxItem x:Name="PrioritizeNone" Content="None"></ComboBoxItem>
+                    <ComboBoxItem x:Name="txt" Content=".txt"></ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <!--File size maximum to copy simultaneously-->
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,45">
+                <TextBlock x:Name="fileSizeMaxi" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text="" Margin="0,0,5,0"/>
+                <TextBox x:Name="FileSizeMaxi" TextWrapping="Wrap"  Width="120" Height="18"/>
+            </StackPanel>
+            
+            
+            <!--BLOCKING SOFTWARE-->
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,75">
+                <TextBlock x:Name="blockingSoftware" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Text="" Margin="0,0,5,0"/>
+                <TextBox x:Name="BlockIfRunning" TextWrapping="Wrap"  Width="120" Height="18"/>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+</Page>

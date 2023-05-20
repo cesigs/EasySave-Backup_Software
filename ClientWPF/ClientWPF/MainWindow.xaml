@@ -1,0 +1,89 @@
+﻿<Window x:Class="ClientWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0,2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.20*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.20*"/>
+
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Label VerticalAlignment="Center">Server message :</Label>
+                <TextBlock x:Name="Retour" HorizontalAlignment="Right" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <DataGrid x:Name="ListSaveWorks" Height="250"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!--PLAY-->
+                <Button x:Name="playButton" Tag="StartSaveWorks" Click="LeftMenu_Click" >
+                    <Image Height="40" Width="40" Source="/play-button.png"/>
+                </Button>
+                <!--PAUSE-->
+                <Button x:Name="pauseButton" Tag="PauseSaveWorks" Click="LeftMenu_Click" >
+                    <Image Height="40" Width="40" Source="/pause-button.png" />
+                </Button>
+                <!--STOP-->
+                <Button x:Name="stopButton" Tag="StopSaveWorks" Click="LeftMenu_Click" >
+                    <Image Height="40" Width="40" Source="/stop-button.png" />
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.40*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+                
+                <Button Style="{StaticResource SelectAction}" Click="Get_Messages" Margin="1,0,0,0">Get Messages
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Button Style="{StaticResource SelectAction}" Click="Execute_AllSaves" Margin="0,0,0,2" >Execute all saves work
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Style="{StaticResource SelectAction}" Click="Display" Margin="1,0,0,0">Display all saves
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label>ID of the save</Label>
+                <TextBox x:Name="ID_Message" Text="" ></TextBox>
+                <Button Style="{StaticResource SelectAction}" Click="ExecuteOne" Margin="0,10,0,0">Execute one save
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

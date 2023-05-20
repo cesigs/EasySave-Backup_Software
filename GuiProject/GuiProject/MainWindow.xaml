@@ -1,0 +1,45 @@
+﻿<Window x:Class="GuiProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuiProject"
+        mc:Ignorable="d"    
+        
+        Title="EasySave" Height="550" Width="970" MinHeight="550" MinWidth="970" Icon="/iconeSave.ico" 
+      WindowStartupLocation="CenterScreen">
+
+    <Border Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Background="White" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Image  Height="auto" Width="auto" MaxHeight="200" MaxWidth="200" HorizontalAlignment="Center" VerticalAlignment="center" Source="Images/iconeSave.png"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Background="White" >
+                    <Button Tag="English" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="LanguageSelection_Click" Background="White" BorderBrush="White">
+                        <Image Height="auto" Width="auto"  MaxWidth="200" MaxHeight="200" Source="Images/united-kingdom-flag-round-small.png"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Background="White">
+                    <Button Tag="French" HorizontalAlignment="center" VerticalAlignment="Center"  Click="LanguageSelection_Click" Background="White" BorderBrush="White">
+                        <Image Height="auto" Width="auto" MaxWidth="200" MaxHeight="200" Source="Images/france-flag-round-small.png"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+
+        </Grid>
+    </Border>
+</Window>
